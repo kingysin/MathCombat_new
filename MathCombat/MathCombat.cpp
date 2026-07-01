@@ -84,7 +84,6 @@ void MathCombat::ShowThirdLevel()
 void MathCombat::ShowCongratulation()
 {
 	QDialog* dialog = new QDialog(this);
-	//dialog->setWindowTitle("Поздравляем!");
 	dialog->setFixedSize(700, 550);
 	dialog->setModal(true);
 
@@ -93,7 +92,6 @@ void MathCombat::ShowCongratulation()
 	layout->setSpacing(20);
 	layout->setContentsMargins(30, 30, 30, 30);
 
-	// Текст поздравления
 	QString congratulationText =
 		"ПОЗДРАВЛЯЕМ!\n\n"
 		"Вы победили всех монстров\n"
@@ -102,14 +100,12 @@ void MathCombat::ShowCongratulation()
 	QLabel* label = new QLabel(congratulationText);
 	label->setAlignment(Qt::AlignCenter);
 	label->setProperty("style_type", "TASK_LABEL");
-	// Кнопка закрытия
 	QPushButton* closeButton = new QPushButton("✕ Закрыть");
 	closeButton->setFixedSize(200, 70);
 	closeButton->setProperty("style_type", "ANSWER_BUTTON");
 	// Подключаем кнопку к закрытию диалога
 	QObject::connect(closeButton, &QPushButton::clicked, dialog, &QDialog::accept);
 
-	// Добавляем виджеты в layout
 	layout->addWidget(label);
 	layout->addWidget(closeButton, 0, Qt::AlignCenter);
 
