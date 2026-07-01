@@ -31,7 +31,6 @@ void PreviewWidget::ShowRules()
     layout->setSpacing(20);
     layout->setContentsMargins(30, 30, 30, 30);
     
-    // Текст поздравления
     QString congratulationText = 
     "ПРАВИЛА ИГРЫ\n\n"
     "Добро пожаловать в MATH COMBAT!\n\n"
@@ -53,14 +52,12 @@ void PreviewWidget::ShowRules()
     QLabel *label = new QLabel(congratulationText);
     label->setAlignment(Qt::AlignCenter);
     label->setProperty("style_type", "RULE_LABEL");
-    // Кнопка закрытия
     QPushButton *closeButton = new QPushButton("✕ Закрыть");
     closeButton->setFixedSize(200, 70);
     closeButton->setProperty("style_type", "ANSWER_BUTTON");
     // Подключаем кнопку к закрытию диалога
     QObject::connect(closeButton, &QPushButton::clicked, dialog, &QDialog::accept);
     
-    // Добавляем виджеты в layout
     layout->addWidget(label);
     layout->addWidget(closeButton, 0, Qt::AlignCenter);
 
