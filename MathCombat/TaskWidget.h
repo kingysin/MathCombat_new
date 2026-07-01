@@ -11,7 +11,6 @@
 namespace Ui { class TaskWidgetClass; }
 
 // Класс окна с математическими примерами.
-// Имеет 3 уровня сложности 
 class TaskWidget : public QWidget
 {
 	Q_OBJECT
@@ -28,13 +27,11 @@ private slots:
 
 signals:
 	void FightIsOver(bool result); // Сигнал отправляется после проверки ответа
-	// (result = true - Пользователь ответил правильно)
-	// (result = false - Пользователь ответил неправильно)
 
 private:
-	void ShowEasyTask(); // Показать простой пример
-	void ShowMediumtask(); // Показать пример средней сложности
-	void ShowHardTask();   // Показать сложный пример
+	void ShowEasyTask(); 
+	void ShowMediumtask(); 
+	void ShowHardTask();   
 
 	Difficulty currentDifficulty = Difficulty::Easy; // Уровень сложности текущего примера
 
