@@ -19,29 +19,27 @@ public:
 	MathCombat(QWidget* parent = nullptr);
 	~MathCombat();
 
-	bool IsLevelPassed(); //пройлен ли этот уровень 
+	bool IsLevelPassed(); 
 
-	// Функции показывают сцену на уровнях
+	// Сцена на уровнях
 	void ShowFirstLevel();
 	void ShowSecondLevel();
 	void ShowThirdLevel();
 
-	// Показывает окно с поздравлениями для пользователя в конце игры
 	void ShowCongratulation();
 
-
 public slots:
-	void StartNewGame(); // Начинает новую игру с первого уровня
+	void StartNewGame(); 
 	void StartCombat(Difficulty diff); // Начинает математический бой с заданным уровнем сложности
 	void EndCombat(bool result);  // Обрабатывает результат боя
 
 private:
-	void ContinueGame(); // Продолжить игру
+	void ContinueGame(); 
 	void ShowErrorDialog(); // Показывает диалог об ошибке, если пользователь ввел неправильный ответ
 
 	int currentLevel = 1; // текущий уровень игры
 
-	GameScene* m_scene; // сцена
+	GameScene* m_scene; 
 
 	Ui::MathCombatClass* ui;
 };
