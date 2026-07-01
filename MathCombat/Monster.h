@@ -18,8 +18,8 @@ public:
 	explicit Monster(Difficulty difficulty, QObject* parent = nullptr);
 	~Monster();
 
-	void startAnimation(); // Начать анимацию 
-	void stopAnimation();  // Остановить анимацию
+	void startAnimation(); 
+	void stopAnimation();  
 
 	void nextFrame(); // Показывает следующую картинку спрайта
 
@@ -32,12 +32,12 @@ private:
 
 	QVector<QPixmap> Frames; // Вектор спрайтов
 
-	QPixmap idleRight; // Смотрит вправо
-	QPixmap idleLeft;  // Смотрит влево
+	QPixmap idleRight;
+	QPixmap idleLeft;  
 
-	QTimer* animationTimer; // Таймер анимации
+	QTimer* animationTimer; 
 
 	int m_currentFrame; // Индекс текущей картинки в векторе 
 
-	bool m_animationForward = true; // Монстр поворачивается вперет (true) или назад (false)
+	bool m_animationForward = true; // Монстр поворачивается вперед (true) или назад (false)
 };
