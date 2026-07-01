@@ -20,7 +20,6 @@ GameScene::GameScene(std::vector<std::pair<Monster*, QPointF>> vectorMonsters, Q
 	m_player->setPos(playerPos); // Задаем положение
 
 	// ===== МОНСТЕР =====
-	//m_monster = new Monster(Monster::Difficulty::Easy, this);
 
 	for (auto monster : m_vectorMonsters)
 	{
