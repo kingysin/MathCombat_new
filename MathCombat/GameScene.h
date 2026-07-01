@@ -11,7 +11,7 @@
 #include <vector>
 #include <utility>
 
-// класс сцены. Отображает главного героя, монстров и фон, обрабатывает нажатия на клавищи A и D
+// Класс сцены. Отображает главного героя, монстров и фон, обрабатывает нажатия на клавищи A и D
 class GameScene : public QGraphicsScene
 {
 	Q_OBJECT
@@ -30,7 +30,7 @@ public:
 	void ContinueGame(); // Продолжит игру после победы над монстром
 
 signals:
-	void CombatSignal(Difficulty diff); //Сигнал о том что начался бой. diff - уровень сложности монстра. 
+	void CombatSignal(Difficulty diff); //Сигнал о том что начался бой, diff - уровень сложности монстра. 
 	//Отправляется когда происходит столкновение с монстром
 
 private slots:
@@ -38,17 +38,17 @@ private slots:
 
 private:
 
-	Player* m_player;  // главный герой
+	Player* m_player;  
 	QTimer* m_gameTimer;  //Таймер для обновления сцены
 
-	bool m_movingLeft;   // Идет ли главный герой влево в данный момент
-	bool m_movingRight;  // Идет ли герой вправо в данный момент
+	bool m_movingLeft;   
+	bool m_movingRight;  
 
 	bool m_combatBegin = false;  // True если бой идет
 
-	std::vector<std::pair<Monster*, QPointF>> m_vectorMonsters;  // Вектор всех монстров на сцене
+	std::vector<std::pair<Monster*, QPointF>> m_vectorMonsters;  
 
-	int numberDefeatedMonsters = 0; // количество побежденных монстров 
+	int numberDefeatedMonsters = 0; 
 };
 
-#endif // GAMESCENE_H
+#endif 
