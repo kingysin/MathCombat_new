@@ -23,7 +23,6 @@ PreviewWidget::~PreviewWidget()
 void PreviewWidget::ShowRules()
 {
 	  QDialog *dialog = new QDialog(this);
-    //dialog->setWindowTitle("Правил");
     dialog->setFixedSize(700, 750);
     dialog->setModal(true);
     
