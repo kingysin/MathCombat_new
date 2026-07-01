@@ -7,28 +7,20 @@ GameScene::GameScene(std::vector<std::pair<Monster*, QPointF>> vectorMonsters, Q
 	m_movingLeft = false;
 	m_movingRight = false;
 
-	// ===== ФОН =====
-
 	QPixmap background(BackgroundTheme);
 	addPixmap(background);
 	setSceneRect(background.rect());
-
-	// ===== ИГРОК =====
 
 	m_player = new Player(this);
 	addItem(m_player); // Добавляем на сцену
 	m_player->setPos(playerPos); // Задаем положение
 
-	// ===== МОНСТЕР =====
-
 	for (auto monster : m_vectorMonsters)
 	{
-		addItem(monster.first); // Добавляем монстра на сцену
-		monster.first->setPos(monster.second); // Задаем ему позицию
+		addItem(monster.first); 
+		monster.first->setPos(monster.second); 
 		monster.first->startAnimation(); // Начинаем анимацию
 	}
-
-	// ===== GAME LOOP =====
 
 	m_gameTimer = new QTimer(this);
 	connect(m_gameTimer, &QTimer::timeout, this, &GameScene::updateGame);
@@ -47,13 +39,8 @@ GameScene::~GameScene()
 	}
 }
 
-// =====================================================
-// ОБНОВЛЕНИЕ ИГРЫ
-// =====================================================
-
 void GameScene::updateGame()
 {
-	// ===== ДВИЖЕНИЕ ВПРАВО =====
 
 	if (m_movingRight)
 	{
@@ -62,16 +49,12 @@ void GameScene::updateGame()
 		//m_monster->moveLeft();
 	}
 
-	// ===== ДВИЖЕНИЕ ВЛЕВО =====
-
 	if (m_movingLeft)
 	{
 		m_player->moveLeft();
 		m_player->startAnimation();
 		//m_monster->moveRight();
 	}
-
-	// ===== ЕСЛИ НЕ ДВИГАЕТСЯ =====
 
 	if (!m_movingLeft && !m_movingRight)
 	{
@@ -88,34 +71,30 @@ void GameScene::updateGame()
 
 		if (monster)
 		{
-			// ПРОИЗОШЛО СТОЛКНОВЕНИЕ С МОНСТРОМ 
+			// СТОЛКНОВЕНИЕ С МОНСТРОМ 
 			qDebug() << "Столкновение!";
 
 			emit CombatSignal(monster->getDifficulty()); // Отправляем сигнал о том что произошло столкновение 
-			// с монстром сложности monster->getDifficulty() (Его поймает класс MathCombat)
+			// с монстром сложности monster->getDifficulty() 
 
 
-			monster->moveBy(-1000, -1000); // Визуально убирает монстра со сцены 
-			// Это нужно что бы он перестал отображаться на сцене, если его победят
+			monster->moveBy(-1000, -1000); // Визуально убираем монстра со сцены 
 
 			m_gameTimer->stop(); // Останавливаем таймер для обновления игры
-			numberDefeatedMonsters++; // Считаем монстра побежденным (Мы не вернемся на эту сцену в случае поражения пользователя)
-			m_combatBegin = true; // Флаг что бой начался. Нажатия на клавиутуру не обрабатываются во время боя
-			m_movingLeft = false; // Нет движения вправо
-			m_movingRight = false; // нет движения влево
+			numberDefeatedMonsters++; // Считаем монстра побежденным 
+			m_combatBegin = true; // Флаг что бой начался
+			m_movingLeft = false; 
+			m_movingRight = false; 
 			return;
 		}
 	}
 
 }
 
-// =====================================================
 // НАЖАТИЕ КЛАВИШ
-// =====================================================
 
 void GameScene::keyPressEvent(QKeyEvent* event)
 {
-	// если идет бой - не обрабатываем события с клавиатуры
 	if (m_combatBegin)
 	{
 		return;
@@ -126,14 +105,10 @@ void GameScene::keyPressEvent(QKeyEvent* event)
 		return;
 	}
 
-	// ===== D =====
-
 	if (event->key() == Qt::Key_D)
 	{
 		m_movingRight = true;
 	}
-
-	// ===== A =====
 
 	if (event->key() == Qt::Key_A)
 	{
@@ -144,9 +119,7 @@ void GameScene::keyPressEvent(QKeyEvent* event)
 	QGraphicsScene::keyPressEvent(event);
 }
 
-// =====================================================
-// ОТПУСКАНИЕ КЛАВИШ
-// =====================================================
+//ОТПУСКАНИЕ КЛАВИШ
 
 void GameScene::keyReleaseEvent(QKeyEvent* event)
 {
@@ -155,14 +128,10 @@ void GameScene::keyReleaseEvent(QKeyEvent* event)
 		return;
 	}
 
-	// ===== D =====
-
 	if (event->key() == Qt::Key_D)
 	{
 		m_movingRight = false;
 	}
-
-	// ===== A =====
 
 	if (event->key() == Qt::Key_A)
 	{
@@ -179,10 +148,9 @@ bool GameScene::AllMonstersDefeated()
 }
 
 
-// Продолжаем игру
 void GameScene::ContinueGame()
 {
-	m_combatBegin = false; // Бой закончился (снова обрабатывает собития с клавиатуры)
+	m_combatBegin = false; // Бой закончился
 
 	m_gameTimer->start(); // Снова запускаем таймер
 }
