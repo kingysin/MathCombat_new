@@ -16,25 +16,25 @@ public:
 	Player(QObject* parent);
 	~Player();
 
-	void moveLeft();	// Двигает героя влево с анимацией бега
-	void moveRight(); // Двигает героя вправо с анимайией бега
+	void moveLeft(); // Двигает героя влево с анимацией бега	
+	void moveRight(); 
 
-	void startAnimation(); // Начинает анимацию бега
-	void stopAnimation();  // Останавливает анимацию бега
+	void startAnimation(); 
+	void stopAnimation();  
 	 
 	void nextFrame(); // Меняет спрайт
 
 private:
-	QVector<QPixmap> walkRightFrames;  // Вектор спрайтов для бега вправо 
-	QVector<QPixmap> walkLeftFrames;   // Вектор спрайтов для бега влево
+	QVector<QPixmap> walkRightFrames;  
+	QVector<QPixmap> walkLeftFrames;  
 
-	QPixmap idleRight;  // Стоит на месте смотрив право 
-	QPixmap idleLeft;   // Стоит на месте смотрит влево
+	QPixmap idleRight;  // Стоит на месте смотрит вправо 
+	QPixmap idleLeft;   
 
-	QTimer* animationTimer;  // Nfqvth fybvfwbb
+	QTimer* animationTimer;  
 
 	int currentFrame;  // Индекс текущей картинки анимации
 	bool movingLeft;   // Происходит движение влево 
-	bool movingRight;  // Происходит движение вправо
+	bool movingRight;  
 
 };
