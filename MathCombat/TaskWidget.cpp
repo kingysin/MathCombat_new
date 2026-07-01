@@ -125,5 +125,5 @@ void TaskWidget::CheckingResponse()
 		}
 	};
 
-	emit FightIsOver(result); // Испускаем сигнал с результатом боя (Его поймает класс MathCombat)
+	emit FightIsOver(result); // Испускаем сигнал с результатом боя 
 }
