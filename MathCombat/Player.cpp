@@ -8,7 +8,6 @@ Player::Player(QObject* parent)
 	movingLeft = false;
 	movingRight = false;
 
-	// ===== ЗАГРУЗКА СПРАЙТОВ =====
 
 	// Ходьба вправо
 	walkRightFrames.append(QPixmap(":/MathCombat/Resource/HeroRight1.png"));
@@ -28,8 +27,6 @@ Player::Player(QObject* parent)
 
 	// Стартовый спрайт
 	setPixmap(idleRight);
-
-	// ===== ТАЙМЕР АНИМАЦИИ =====
 
 	animationTimer = new QTimer(this);
 
@@ -90,7 +87,6 @@ void Player::nextFrame()
 {
 	currentFrame++;
 
-	// ===== АНИМАЦИЯ ВПРАВО =====
 
 	if (movingRight)
 	{
@@ -101,7 +97,6 @@ void Player::nextFrame()
 		);
 	}
 
-	// ===== АНИМАЦИЯ ВЛЕВО =====
 
 	if (movingLeft)
 	{
