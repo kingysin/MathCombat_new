@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/MathCombat">
+        <file>Resource/Preview.png</file>
+        <file>Resource/Style.qss</file>
+        <file>Resource/play.png</file>
+        <file>Resource/HeroLeft1.png</file>
+        <file>Resource/HeroLeft2.png</file>
+        <file>Resource/HeroLeft3.png</file>
+        <file>Resource/HeroLeft4.png</file>
+        <file>Resource/HeroRight1.png</file>
+        <file>Resource/HeroRight2.png</file>
+        <file>Resource/HeroRight3.png</file>
+        <file>Resource/HeroRight4.png</file>
+        <file>Resource/Level1.png</file>
+        <file>Resource/dialog.png</file>
+        <file>Resource/MonsterLeft2Easy.png</file>
+        <file>Resource/MonsterLeft2Medium.png</file>
+        <file>Resource/MonsterLeftEasy.png</file>
+        <file>Resource/MonsterLeftMedium.png</file>
+        <file>Resource/MonsterProfileEasy.png</file>
+        <file>Resource/MonsterProfileMedium.png</file>
+        <file>Resource/MonsterRight2Easy.png</file>
+        <file>Resource/MonsterRight2Medium.png</file>
+        <file>Resource/MonsterRightEasy.png</file>
+        <file>Resource/MonsterRightMedium.png</file>
+        <file>Resource/level2.png</file>
+        <file>Resource/MonsterLeft2Hard.png</file>
+        <file>Resource/MonsterLeftHard.png</file>
+        <file>Resource/MonsterProfileHard.png</file>
+        <file>Resource/MonsterRight2Hard.png</file>
+        <file>Resource/MonsterRightHard.png</file>
+        <file>Resource/Level3.png</file>
+    </qresource>
+</RCC>
